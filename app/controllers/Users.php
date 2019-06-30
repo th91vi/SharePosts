@@ -26,11 +26,11 @@
 
                 // Validação de nome
                 if(empty($data['name'])){
-                    $data['name_error'] = 'Por favor preenche o campo de nome';
+                    $data['name_error'] = 'Por favor preencha o campo de nome';
                 }
                 // Validação de email
                 if(empty($data['email'])){
-                    $data['email_error'] = 'Por favor preenche o campo de e-mail';
+                    $data['email_error'] = 'Por favor preencha o campo de e-mail';
                 } else {
                     //Verifica existência do e-mail
                     if($this->userModel->findUserByEmail($data['email'])){
@@ -55,7 +55,16 @@
                 // Certifica que erros estão vazios
                 if(empty($data['name_error']) && empty($data['email_error']) && empty($data['password_error']) && empty($data['confirm_password_error'])){
                     // Validado
-                    die('Sucesso');
+                    
+                    // Hash password
+                    $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
+
+                    // Registra  usuário
+                    if ($this->userModel->register($data)){
+                        redirect('users/login');
+                    } else {
+                        die('Erro desconhecido. Contate o suporte.');
+                    };
                 } else {
                     //Carrega view com erros
                     $this->view('users/register', $data);

@@ -2,6 +2,9 @@
     // Carrega config
     require_once 'config/config.php';
 
+    // Carrega helpers
+    require_once 'helpers/url_helper.php';
+
     // Carrega Libraries
     // require_once 'libraries/core.php';
     // require_once 'libraries/controller.php';
