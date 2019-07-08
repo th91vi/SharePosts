@@ -3,8 +3,9 @@
     <div class="row">
         <div class="col-md-6 mx-auto">
             <div class="card card-body bg-light mt-5">
+                <?php flash('register_success'); ?>
                 <h2>Faça login</h2>
-                <p>Por favor seus dados para fazer login</p>
+                <p>Por favor preencha seus dados para fazer login</p>
                 <form action="<?php echo URLROOT ?>/users/login" method="POST">
                     <div class="form-group">
                         <label for="email">E-mail: <sup>*</sup></label>
