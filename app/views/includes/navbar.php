@@ -19,7 +19,10 @@
                 <?php if(isset($_SESSION['user_id'])) : ?>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="<?php echo URLROOT; ?>/users/logout">Sair</a>
+                    <a class="nav-link" href="#"><i class="fa fa-user"></i> <?php echo $_SESSION['user_name'] ?></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?php echo URLROOT; ?>/users/logout"><i class="fa fa-sign-out-alt"></i> Sair</a>
                 </li>
 
                 <?php else : ?>

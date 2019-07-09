@@ -53,5 +53,18 @@
                 return false;
             }
         }
+
+
+        //Encontra usuário por id
+        public function getUserById($id){
+            $this->db->query('SELECT * FROM users WHERE id = :id');
+            // Vincula valores
+            $this->db->bind(':id', $id);
+
+            //Retorna linha única
+            $row = $this->db->single();
+
+            return $row;
+        }
     }
 ?>
